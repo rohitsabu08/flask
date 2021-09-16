@@ -1,8 +1,6 @@
 import re
 from flask import Flask ,render_template,request
 from flask.wrappers import Request
-from werkzeug.wrappers import request
-
 #WSGI
 app = Flask(__name__)
 
@@ -14,7 +12,7 @@ def welcome():
 def names(your_name):
     return f"Welcome to praxis {your_name}"
 
-@app.route("/checking_req")
+@app.route("/checking_req", methods=['POST','GET'])
 def get_req_parameters():
     name = request.args.get("studentname")
     roll_no = request.args.get("roll_no")
