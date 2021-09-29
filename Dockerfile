@@ -9,5 +9,5 @@ ADD . /project
 RUN pip install --upgrade pip
 RUN pip install -r requirement.txt
 #  Run file
-CMD ['python','main.py']
+CMD ["python","main.py"]
 

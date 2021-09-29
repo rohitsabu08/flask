@@ -1,15 +1,14 @@
-from os import name
-import re
 from flask import Flask ,render_template,request
 from flasgger import Swagger
+import os
 #WSGI
 app = Flask(__name__)
 Swagger(app)
 
-@app.route('/',methods = ['GET'])
+@app.route('/')
 def welcome():
     #return render_template('index.html')
-    return("Swagger building")
+    return("Swagger building-using docker")
 @app.route('/name/<your_name>')
 def names(your_name):
     return f"Welcome to praxis {your_name}"
@@ -39,6 +38,7 @@ def get_req_parameters():
     num =  request.args.get("roll_no")
     return(f"Student name is {name} and roll number is {num}")
     
-if __name__ == '__main__':
-    app.run(debug= True, host='0.0.0.0',port =3400)
-
+if __name__ == "__main__":
+    #port = int(os.environ.get('PORT',5000))
+    app.run( host="0.0.0.0",port =3500)
+    
