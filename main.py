@@ -1,6 +1,6 @@
 from flask import Flask ,render_template,request
 from flasgger import Swagger
-import os
+#import os
 #WSGI
 app = Flask(__name__)
 Swagger(app)
@@ -39,5 +39,5 @@ def get_req_parameters():
     return(f"Student name is {name} and roll number is {num}")
     
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT',5000))
-    app.run(host= "0.0.0.0",port =3400)
+    #port = int(os.environ.get('PORT',5000))
+    app.run(host= "0.0.0.0",port =port)
